@@ -1,6 +1,7 @@
 .card-wrapper {
   position: relative;
   margin-top: 10px;
+  width: fit-content;
 }
 
 .card {
@@ -14,16 +15,31 @@
   display: flex;
   align-items: center;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 20px;
-    width: 1px;
-    bottom: 100%;
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    height: 10px;
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 100%;
+  //   left: 20px;
+  //   width: 1px;
+  //   bottom: 100%;
+  //   border-left: 1px solid rgba(0, 0, 0, 0.2);
+  //   z-index: 1;
+  //   height: 10px;
+  // }
+
+  &:not(:first-child) {
+    &::after {
+      content: "";
+      position: absolute;
+      align-self: center;
+      left: -20px;
+      height: 10px;
+      width: 20px;
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      z-index: -1;
+      border-radius: 0 0 0 10px;
+    }
   }
 }
 
@@ -115,15 +131,29 @@
   &::after {
     content: "";
     position: absolute;
-    top: 100%;
-    bottom: 100%;
-    left: 20px;
+    align-self: center;
+    left: -20px;
+    height: 25px;
     width: 20px;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-    z-index: 1;
+    z-index: -1;
     border-radius: 0 0 0 10px;
-    height: 40px;
+  }
+}
+
+.card-without-child {
+  &::after {
+    content: "";
+    position: absolute;
+    align-self: center;
+    left: -20px;
+    height: 10px;
+    width: 20px;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    z-index: -1;
+    border-radius: 0 0 0 10px;
   }
 }
 
@@ -134,7 +164,7 @@
     content: "";
     position: absolute;
     bottom: 20px;
-    top: 40px;
+    top: 65px;
     left: 20px;
     width: 20px;
     border-left: 1px solid #ccc;
