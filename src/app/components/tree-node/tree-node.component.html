@@ -1,0 +1,21 @@
+<li class="card-wrapper" [class.root-card]="hasChildren">
+	<div class="card" [class.child-card]="hasChildren">
+		<div class="card-content">
+			<div class="left">
+				<div class="indicator-bar"></div>
+				<img src="https://randomuser.me/api/portraits/women/34.jpg" class="avatar">
+
+        <div class="details">
+          <span class="protocol">#123541</span>
+          <span class="title">Alteração de endereço</span>
+        </div>
+			</div>
+			<div class="right">
+        <span class="tag">Finalizado</span>
+        <span class="date">10 Jan 2020</span>
+      </div>
+			</div>
+		</div>
+
+		<app-tree *ngIf="hasChildren" [data]="data?.children" style="margin-top: 10px"></app-tree>
+</li>
